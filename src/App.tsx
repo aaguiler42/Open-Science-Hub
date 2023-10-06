@@ -7,7 +7,7 @@ import "./App.css";
 const config: NeovisConfig = {
   containerId: "viz",
   neo4j: {
-    serverUrl: "neo4j://2bb21514databases.neo4j.io:7687",
+    serverUrl: "bolt://2bb21514databases.neo4j.io:7687",
     serverUser: "neo4j",
     serverPassword: "m5-u_fQxwOCH4Ka7-iBIwaUKXSoIkRldnMRP3bRVrmk",
     driverConfig: {
