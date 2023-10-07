@@ -1,11 +1,11 @@
 import {
   Network,
-  Options,
   Edge,
 } from "vis-network/standalone/esm/vis-network";
 
 import { useEffect, useRef } from "react";
 import { NodeData } from "../types";
+import { options } from "../data/graph";
 
 export default function Graph({
   height = "50rem",
@@ -21,43 +21,15 @@ export default function Graph({
   setSelected: (node: NodeData | null) => void;
 }) {
   const network = useRef<Network| null>(null)
+  console.log(network.current?.getSeed())
 
   useEffect(() => {
     const container = document.getElementById("mynetwork");
     if (!container) return;
+    console.log(edges)
 
-    const options: Options = {
-      clickToUse: true,
-      nodes: {
-        shape: "circle",
-        color: {
-          background: "#ffffff",
-          border: "#1c1c1c",
-          highlight: {
-            background: "#ffffff",
-            border: "#000000",
-          },
-          hover: {
-            background: "#ffffff",
-            border: "#000000",
-          },
-        },
-      },
-      edges: {
-        color: {
-          color: "#8c8c8c",
-          highlight: "#000000",
-          hover: "#000000",
-        },
-      },
-    };
     const data = {
-      nodes: nodes.map(node => {
-        if ('person' in node && node.person) {
-          return {...node, shape: 'circularImage', image: 'https://thispersondoesnotexist.com/' }
-        }
-        return node
-      }),
+      nodes,
       edges,
     };
     network.current = new Network(container, data, options);

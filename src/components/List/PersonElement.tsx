@@ -13,6 +13,7 @@ export default function PersonElement({
   selected?: boolean;
   onClick?: () => void;
 }) {
+  if (!node.person) return null
   return (
     <div
       id={id}
@@ -46,7 +47,7 @@ export default function PersonElement({
         >
           {node.person && (
             <img
-              src={"https://thispersondoesnotexist.com"}
+              src={node.person.image}
               alt={node.person.name}
               style={{
                 width: "100%",
@@ -62,7 +63,7 @@ export default function PersonElement({
               fontWeight: "bold",
             }}
           >
-            {node.label}
+            {node.person.name}
           </h3>
           <span>Guapo e inteligente</span>
         </div>
@@ -76,14 +77,18 @@ export default function PersonElement({
       >
         <Badge>AI</Badge>
         <Badge>Data</Badge>
-        <img src={openSVG} alt="open" style={{
+        <img
+          src={openSVG}
+          alt="open"
+          style={{
             position: "absolute",
             top: "1.5rem",
             right: "1rem",
             cursor: "pointer",
             width: "1.5rem",
             height: "1.5rem",
-        }}/>
+          }}
+        />
       </div>
       {/* <p
             style={{

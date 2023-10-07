@@ -1,16 +1,17 @@
 import { Node } from "vis-network/standalone/esm/vis-network";
+import levels from "./data/levels";
 
-interface Skill {
+export interface Skill {
   id: string
   name: string;
 }
 
-type Level = "basic" | "intermediate" | "advanced";
-type Status = "inProgress" | "finished";
+type Level = typeof levels[keyof typeof levels]
 
 export interface Category {
   id: string;
   name: string;
+  color: string
 }
 
 export interface Project {
@@ -22,7 +23,7 @@ export interface Project {
   level: Level;
   startDate: Date;
   endDate: Date;
-  status: Status;
+  image?: string;
 }
 
 export interface Person {
@@ -30,6 +31,7 @@ export interface Person {
   name: string;
   description: string;
   skills: Skill[];
+  projects: Project[];
   level: Level;
   image?: string;
 }

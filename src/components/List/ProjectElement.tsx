@@ -41,15 +41,13 @@ export default function ProjectElement({
           }}
         >
           {node.project && (
-            <div
-            // <img
-            //   src={"https://thispersondoesnotexist.com"}
-            //   alt={node.project.title}
+            <img
+              src={node.project.image}
+              alt={node.project.title}
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                backgroundColor: "#fff",
               }}
             />
           )}
