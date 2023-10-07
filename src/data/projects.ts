@@ -18,6 +18,7 @@ const projects: Project[] = [
     level: levels.advanced,
     startDate: new Date("2023-11-01"),
     endDate: new Date("2024-10-31"),
+    image: '/renewable.png'
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ const projects: Project[] = [
     level: levels.advanced,
     startDate: new Date("2023-12-10"),
     endDate: new Date("2024-12-10"),
+    image: '/cognitiveNeuroscienceResearch.jpeg'
   },
   {
     id: 3,
@@ -38,6 +40,7 @@ const projects: Project[] = [
     level: levels.intermediate,
     startDate: new Date("2024-01-15"),
     endDate: new Date("2024-12-15"),
+    image: '/agriculture.jpeg'
   },
   {
     id: 4,
@@ -48,6 +51,7 @@ const projects: Project[] = [
     level: levels.advanced,
     startDate: new Date("2024-02-01"),
     endDate: new Date("2025-02-01"),
+    image: '/quantum.jpg'
   },
   {
     id: 5,
@@ -58,6 +62,7 @@ const projects: Project[] = [
     level: levels.intermediate,
     startDate: new Date("2024-03-15"),
     endDate: new Date("2025-03-15"),
+    image: '/mentalHealth.jpg'
   },
   {
     id: 6,
@@ -79,6 +84,7 @@ const projects: Project[] = [
     level: levels.intermediate,
     startDate: new Date("2024-05-10"),
     endDate: new Date("2025-05-10"),
+    image: '/policyenv.png'
   },
   {
     id: 8,
@@ -89,6 +95,7 @@ const projects: Project[] = [
     level: levels.advanced,
     startDate: new Date("2024-06-01"),
     endDate: new Date("2025-06-01"),
+    image: '/mentalDATA.png'
   },
   {
     id: 9,
@@ -110,6 +117,7 @@ const projects: Project[] = [
     level: levels.advanced,
     startDate: new Date("2024-08-01"),
     endDate: new Date("2025-08-01"),
+    image: '/words.png'
   },
 ];
 
