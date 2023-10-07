@@ -1,5 +1,6 @@
 import { NodeData } from "../../types";
 import { Badge } from "../ui/badge";
+import openSVG from "../../assets/open.svg";
 
 export default function PersonElement({
   id,
@@ -18,6 +19,7 @@ export default function PersonElement({
       key={node.id}
       onClick={onClick}
       style={{
+        position: "relative",
         padding: "1rem",
         maxHeight: "18rem",
         display: "flex",
@@ -74,6 +76,14 @@ export default function PersonElement({
       >
         <Badge>AI</Badge>
         <Badge>Data</Badge>
+        <img src={openSVG} alt="open" style={{
+            position: "absolute",
+            top: "1.5rem",
+            right: "1rem",
+            cursor: "pointer",
+            width: "1.5rem",
+            height: "1.5rem",
+        }}/>
       </div>
       {/* <p
             style={{
