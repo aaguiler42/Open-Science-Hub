@@ -14,9 +14,13 @@ import Onboarding from "./components/Onboarding";
 import List from "./components/List";
 import Nav from "./components/Nav";
 import Filters from "./components/Filters";
+import { useModalContext } from "./contexts/ModalContext";
+import Profile from "./components/Profile";
 
 function App() {
   const [selected, setSelected] = useState<NodeData | null>(null);
+  const { profileModal , setProfileModal } = useModalContext();
+  console.log('useModalContext', profileModal, setProfileModal)
 
   return (
     <ClerkProvider publishableKey={clerk_pub_key}>
@@ -68,6 +72,7 @@ function App() {
           </div>
         </div>
       </div>
+      {profileModal && <Profile onClose={() => setProfileModal(false)} />}
     </ClerkProvider>
   );
 }

@@ -4,10 +4,10 @@ function CloseX(props: { onClose?: () => void }) {
     top: "1rem",
     right: "1.8rem",
     cursor: "pointer",
-    fontSize: "1.5rem"
-    }}>
-    <div style={{
-    }} onClick={props.onClose}><strong>x</strong></div>
+    fontSize: "1.5rem",
+    padding: "1rem",
+  }} onClick={props.onClose}>
+    <strong>x</strong>
   </div>);
 }
 

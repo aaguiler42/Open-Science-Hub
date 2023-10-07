@@ -3,7 +3,7 @@ import Modal from "./Modal";
 
 export default function Onboarding(){
   return (<Modal
-    showX={true}
+    showX={false}
     width="80vw"
     height="80vh"
   >
