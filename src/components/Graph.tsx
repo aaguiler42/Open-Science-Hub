@@ -4,19 +4,20 @@ import {
   Edge,
 } from "vis-network/standalone/esm/vis-network";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NodeData } from "../types";
 
 export default function Graph({
   height = "50rem",
   nodes,
   edges,
+  setSelected
 }: {
   height?: string,
   nodes: NodeData[];
   edges: Edge[];
+  setSelected: (node: NodeData | null) => void;
 }) {
-  const [selected, setSelected] = useState<NodeData | null>(null);
 
   useEffect(() => {
     const container = document.getElementById("mynetwork");
@@ -59,16 +60,24 @@ export default function Graph({
     const network = new Network(container, data, options);
 
     network.on("click", function (params) {
-      console.log(params);
-      if (params.nodes.length)
-        setSelected(nodes?.find(({ id }) => id === params.nodes[0]) ?? null);
+      if (!params.nodes.length) return
+
+      const node = nodes?.find(({ id }) => id === params.nodes[0]) ?? null
+      setSelected(node);
+
+      const el = document.querySelector(`#node-${node?.id}`);
+      console.log(el)
+      const anchor = document.createElement("a");
+      anchor.href = `#node-${node?.id}`
+      anchor.click();
+      anchor.remove();
     });
 
-    const obj = {
-      viewPosition: network.getViewPosition(),
-      scale: network.getScale(),
-      positions: network.getPositions(),
-    };
+    // const obj = {
+    //   viewPosition: network.getViewPosition(),
+    //   scale: network.getScale(),
+    //   positions: network.getPositions(),
+    // };
   }, []);
 
   return (

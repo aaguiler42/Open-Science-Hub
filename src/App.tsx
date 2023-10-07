@@ -37,7 +37,7 @@ function App() {
           height: "96vh"
         }}
       >
-        <List nodes={nodes} />
+        <List nodes={nodes} selected={selected} />
         <div style={{
           height: "90vh",
           position: "relative"
@@ -48,7 +48,7 @@ function App() {
             left: "1rem",
             zIndex: 10
           }}><Filters /></div>
-        <Graph height="90vh" nodes={nodes} edges={edges} />
+        <Graph height="90vh" nodes={nodes} edges={edges} setSelected={setSelected} />
         </div>
       </div>
       </div>
