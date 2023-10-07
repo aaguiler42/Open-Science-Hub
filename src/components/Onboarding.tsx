@@ -1,3 +1,5 @@
+import { Editor } from "novel";
+
 export default function Onboarding(){
   return (<>
     <div style={{
@@ -21,6 +23,9 @@ export default function Onboarding(){
       color: "#000",
     }}>
       <h1>Onboarding</h1>
+      <Editor
+        defaultValue={""}
+      />
     </div>
   </>)
 }
