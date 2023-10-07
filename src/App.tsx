@@ -1,6 +1,10 @@
 // import vis from "vis-network";
 import "./App.css";
 import { useState } from "react";
+import { ClerkProvider, SignInButton, UserButton } from "@clerk/clerk-react";
+import { Route } from "wouter";
+
+const clerk_pub_key = "pk_test_bWFqb3ItcGVnYXN1cy04My5jbGVyay5hY2NvdW50cy5kZXYk";
 
 import { nodes, edges } from "./data/graph";
 import Graph from "./components/Graph";
@@ -10,6 +14,12 @@ function App() {
   const [selected, setSelected] = useState<NodeData | null>(null);
 
   return (
+    <ClerkProvider
+      publishableKey={clerk_pub_key}
+    >
+    <Route path="/onboarding">
+      <div>holA</div>
+    </Route>
     <div style={{
     }}>
       <nav style={{
@@ -71,7 +81,10 @@ function App() {
         </div>
         <Graph height="96vh" nodes={nodes} edges={edges} />
       </div>
-    </div>
+      <SignInButton mode="modal">Login</SignInButton>
+      <UserButton />
+      </div>
+    </ClerkProvider>
   );
 }
 
