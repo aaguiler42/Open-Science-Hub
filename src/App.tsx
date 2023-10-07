@@ -9,6 +9,7 @@ const clerk_pub_key = "pk_test_bWFqb3ItcGVnYXN1cy04My5jbGVyay5hY2NvdW50cy5kZXYk"
 import { nodes, edges } from "./data/graph";
 import Graph from "./components/Graph";
 import { NodeData } from "./types";
+import Onboarding from "./components/Onboarding";
 
 function App() {
   const [selected, setSelected] = useState<NodeData | null>(null);
@@ -18,7 +19,7 @@ function App() {
       publishableKey={clerk_pub_key}
     >
     <Route path="/onboarding">
-      <div>holA</div>
+      <Onboarding />
     </Route>
     <div style={{
     }}>
