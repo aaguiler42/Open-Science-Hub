@@ -1,7 +1,7 @@
 // import vis from "vis-network";
 import "./App.css";
 import { useState } from "react";
-import { ClerkProvider, SignInButton, UserButton } from "@clerk/clerk-react";
+import { ClerkProvider } from "@clerk/clerk-react";
 import { Route } from "wouter";
 
 const clerk_pub_key = "pk_test_bWFqb3ItcGVnYXN1cy04My5jbGVyay5hY2NvdW50cy5kZXYk";
@@ -39,8 +39,6 @@ function App() {
         <List nodes={nodes} />
         <Graph height="90vh" nodes={nodes} edges={edges} />
       </div>
-      <SignInButton mode="modal">Login</SignInButton>
-      <UserButton />
       </div>
     </ClerkProvider>
   );
