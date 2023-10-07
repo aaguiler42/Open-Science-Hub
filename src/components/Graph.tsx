@@ -48,7 +48,12 @@ export default function Graph({
       },
     };
     const data = {
-      nodes,
+      nodes: nodes.map(node => {
+        if ('person' in node && node.person) {
+          return {...node, shape: 'circularImage', image: 'https://thispersondoesnotexist.com/' }
+        }
+        return node
+      }),
       edges,
     };
     const network = new Network(container, data, options);

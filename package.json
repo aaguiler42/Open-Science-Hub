@@ -11,9 +11,15 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.26.3",
+    "@radix-ui/react-select": "^2.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.284.0",
     "neovis.js": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss-animate": "^1.0.7",
     "vis-network": "^9.1.7",
     "wouter": "^2.12.0"
   },
