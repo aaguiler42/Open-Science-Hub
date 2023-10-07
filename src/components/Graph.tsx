@@ -78,7 +78,7 @@ export default function Graph({
     //   scale: network.getScale(),
     //   positions: network.getPositions(),
     // };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div
