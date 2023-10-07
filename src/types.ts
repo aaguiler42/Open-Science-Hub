@@ -28,6 +28,7 @@ export interface Person {
     name: string;
     skills: Skill[];
     level: Level;
+    image?: string
 }
 
 export interface NodeData extends Node {

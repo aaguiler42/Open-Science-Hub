@@ -243,4 +243,6 @@ const people: Person[] = [
   },
 ];
 
+people.forEach(person => person.image = 'https://thispersondoesnotexist.com/')
+
 export default people;
