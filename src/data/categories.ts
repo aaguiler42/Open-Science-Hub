@@ -1,0 +1,35 @@
+import { Category } from "../types";
+
+const categories: Category[] = [
+  { id: 1, name: "Natural Sciences" },
+  { id: 2, name: "Biology" },
+  { id: 3, name: "Chemistry" },
+  { id: 4, name: "Physics" },
+  { id: 5, name: "Astronomy" },
+  { id: 6, name: "Earth Sciences" },
+  { id: 7, name: "Geology" },
+  { id: 8, name: "Meteorology" },
+  { id: 9, name: "Oceanography" },
+  { id: 10, name: "Social Sciences" },
+  { id: 11, name: "Psychology" },
+  { id: 12, name: "Sociology" },
+  { id: 13, name: "Economics" },
+  { id: 14, name: "Anthropology" },
+  { id: 15, name: "Political Science" },
+  { id: 16, name: "Health Sciences" },
+  { id: 17, name: "Medicine" },
+  { id: 18, name: "Nursing" },
+  { id: 19, name: "Pharmacology" },
+  { id: 20, name: "Computer Science" },
+  { id: 21, name: "Computer Science" },
+  { id: 22, name: "Artificial Intelligence" },
+  { id: 23, name: "Environmental Sciences" },
+  { id: 24, name: "Ecology" },
+  { id: 25, name: "Nature Conservation" },
+  { id: 26, name: "Mathematics" },
+  { id: 27, name: "Education Sciences" },
+  { id: 28, name: "Engineering" },
+  { id: 29, name: "Communication Sciences" },
+];
+
+export default categories;
