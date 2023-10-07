@@ -23,9 +23,9 @@ export default function Onboarding(){
       color: "#000",
     }}>
       <h1>Onboarding</h1>
-      <Editor
+      {/* <Editor
         defaultValue={""}
-      />
+      /> */}
     </div>
   </>)
 }
