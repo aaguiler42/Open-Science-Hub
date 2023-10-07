@@ -1,4 +1,4 @@
-import { Editor } from "novel";
+import EditorAI from "./EditorAI";
 
 export default function Onboarding(){
   return (<>
@@ -23,9 +23,7 @@ export default function Onboarding(){
       color: "#000",
     }}>
       <h1>Onboarding</h1>
-      <Editor
-        defaultValue={""}
-      />
+      <EditorAI defaultValue=""/>
     </div>
   </>)
 }
