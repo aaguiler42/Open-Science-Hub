@@ -1,4 +1,4 @@
-import { Editor } from "novel";
+// import { Editor } from "novel";
 
 export default function Onboarding(){
   return (<>
