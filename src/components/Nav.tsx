@@ -9,7 +9,7 @@ export default function Nav() {
       borderBottom: "1px solid #bbb",
       justifyContent: "space-between",
       alignItems: "center",
-      height: "4vh",
+      height: "5vh",
       paddingInline: "2rem"
     }}>
       <span style={{

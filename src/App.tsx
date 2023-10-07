@@ -39,7 +39,7 @@ function App() {
             gridTemplateColumns: "1fr 4fr",
             overflow: "hidden",
             padding: "2rem",
-            height: "96vh",
+            height: "95vh",
           }}
         >
           <List nodes={nodes} selected={selected} setSelected={setSelected} />
