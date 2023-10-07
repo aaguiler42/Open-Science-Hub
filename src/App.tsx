@@ -31,13 +31,13 @@ function App() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "2fr 5fr",
+          gridTemplateColumns: "1fr 4fr",
           overflow: "hidden",
           padding: "2rem",
           height: "96vh"
         }}
       >
-        <List nodes={nodes} selected={selected} />
+        <List nodes={nodes} selected={selected} setSelected={setSelected} />
         <div style={{
           height: "90vh",
           position: "relative"
@@ -48,7 +48,7 @@ function App() {
             left: "1rem",
             zIndex: 10
           }}><Filters /></div>
-        <Graph height="90vh" nodes={nodes} edges={edges} setSelected={setSelected} />
+        <Graph height="90vh" nodes={nodes} edges={edges} selected={selected} setSelected={setSelected} />
         </div>
       </div>
       </div>

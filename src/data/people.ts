@@ -2,7 +2,9 @@ import { Person } from "../types";
 
 const people: Person[] = [
   {
+    id: "Albert Einstein",
     name: "Albert Einstein",
+    description: "descripcion",
     skills: [
       {
         name: "Physics",

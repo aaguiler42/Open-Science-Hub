@@ -14,9 +14,11 @@ export const nodes: NodeData[] = [
     id: 2,
     label: "Proyecto 2",
     project: {
+      id: 2,
       title: "Proyecto 2",
       description: "Proyecto 2",
       skills: [{ name: "Proyecto 2" }],
+      category: { id: "science", name: "Science"},
       level: "basic",
       startDate: new Date(),
       endDate: new Date(),
@@ -27,6 +29,8 @@ export const nodes: NodeData[] = [
     id: 3,
     label: "Persona 1",
     person: {
+      id: "Persona 1",
+      description: "Persona 1",
       name: "Persona 1",
       skills: [{ name: "Persona 1" }],
       level: "basic",
@@ -42,6 +46,6 @@ export const nodes: NodeData[] = [
 
 export const edges: Edge[] = [
   { from: 2, to: 1 },
-  { from: 3, to: 1 },
+  { from: "Albert Einstein", to: 1 },
   { from: 3, to: 4 },
 ];

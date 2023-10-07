@@ -1,6 +1,74 @@
-import { Category } from "../types";
+TIPOS
 
-const categories: Category[] = [
+interface Skill {
+  id: string;
+  name: string;
+}
+
+type Level = "basic" | "intermediate" | "advanced";
+type Status = "inProgress" | "finished";
+
+export interface Category {
+  id: string;
+  name: string;
+}
+
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  skills: Skill[];
+  category: Category;
+  level: Level;
+  startDate: Date;
+  endDate: Date;
+  status: Status;
+}
+
+export interface Person {
+  id: string;
+  name: string;
+  description: string;
+  skills: Skill[];
+  level: Level;
+  image?: string;
+}
+
+
+EJEMPLOS
+persona = {
+    id: "Albert Einstein",
+    name: "Albert Einstein",
+    description: "descripcion",
+    skills: [
+      {
+        name: "Physics",
+      },
+      {
+        name: "Mathematics",
+      },
+    ],
+    level: "advanced",
+  }
+
+proyecto = {
+    id: 2,
+    label: "Proyecto 2",
+    project: {
+      id: 2,
+      title: "Proyecto 2",
+      description: "Proyecto 2",
+      skills: [{ name: "Proyecto 2" }],
+      category: { id: "science", name: "Science"},
+      level: "basic",
+      startDate: new Date(),
+      endDate: new Date(),
+      status: "inProgress",
+    }
+}
+
+
+categorias = [
   {
     id: "Natural Sciences",
     name: "Natural Sciences",
@@ -63,6 +131,9 @@ const categories: Category[] = [
     id: "Communication Sciences",
     name: "Communication Sciences",
   },
-];
+]
 
-export default categories;
+skill = {
+  id: "Problem Solving",
+  name: "Problem Solving"
+}
