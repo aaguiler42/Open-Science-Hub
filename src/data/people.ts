@@ -1,250 +1,116 @@
 import { Person } from "../types";
+import levels from "./levels";
+import projects from "./projects";
+import skills from "./skills";
 
 const people: Person[] = [
   {
-    id: "Albert Einstein",
-    name: "Albert Einstein",
-    description: "descripcion",
-    skills: [
-      {
-        name: "Physics",
-      },
-      {
-        name: "Mathematics",
-      },
-    ],
-    level: "advanced",
+    id: "john-doe",
+    name: "John Doe",
+    description: "Experienced engineer with a passion for renewable energy solutions.",
+    skills: [skills[3], skills[8], skills[9]], // Leadership, Decision Making, Critical Thinking
+    projects: [projects[0], projects[5]], // Renewable Energy Study, Space Exploration Mission II
+    level: levels.advanced,
   },
   {
-    name: "Marie Curie",
-    skills: [
-      {
-        name: "Chemistry",
-      },
-      {
-        name: "Physics",
-      },
-    ],
-    level: "advanced",
+    id: "mary-smith",
+    name: "Mary Smith",
+    description: "Neuroscientist dedicated to understanding the brain's cognitive mechanisms.",
+    skills: [skills[0], skills[6], skills[9]], // Problem Solver, Analytical Thinking, Critical Thinking
+    projects: [projects[1]], // Cognitive Neuroscience Research
+    level: levels.advanced,
   },
   {
-    name: "Isaac Newton",
-    skills: [
-      {
-        name: "Physics",
-      },
-      {
-        name: "Mathematics",
-      },
-    ],
-    level: "advanced",
+    id: "david-wilson",
+    name: "David Wilson",
+    description: "Passionate about wildlife conservation and habitat restoration.",
+    skills: [skills[2], skills[5], skills[7]], // Teamwork, Creativity, Time Management
+    projects: [projects[3]], // Wildlife Habitat Restoration
+    level: levels.intermediate,
+    image: "/boy.png",
   },
   {
-    name: "Nikola Tesla",
-    skills: [
-      {
-        name: "Electrical Engineering",
-      },
-      {
-        name: "Physics",
-      },
-    ],
-    level: "advanced",
+    id: "laura-jones",
+    name: "Laura Jones",
+    description: "Quantum physicist exploring the potential of quantum computing.",
+    skills: [skills[0], skills[7], skills[9]], // Problem Solver, Time Management, Critical Thinking
+    projects: [projects[4]], // Quantum Computing Research
+    level: levels.advanced,
   },
   {
-    name: "Ada Lovelace",
-    skills: [
-      {
-        name: "Computer Science",
-      },
-      {
-        name: "Mathematics",
-      },
-    ],
-    level: "advanced",
+    id: "alex-hernandez",
+    name: "Alex Hernandez",
+    description: "Dedicated to improving mental health through research and interventions.",
+    skills: [skills[1], skills[6], skills[5]], // Communication, Analytical Thinking, Creativity
+    projects: [projects[5]], // Mental Health Intervention Study
+    level: levels.intermediate,
   },
   {
-    name: "Galileo Galilei",
-    skills: [
-      {
-        name: "Physics",
-      },
-      {
-        name: "Astronomy",
-      },
-    ],
-    level: "advanced",
+    id: "sarah-adams",
+    name: "Sarah Adams",
+    description: "Lead scientist on a mission to explore outer space.",
+    skills: [skills[3], skills[0], skills[9]], // Leadership, Problem Solver, Critical Thinking
+    projects: [projects[6]], // Space Exploration Mission II
+    level: levels.advanced,
   },
   {
-    name: "Alan Turing",
-    skills: [
-      {
-        name: "Computer Science",
-      },
-      {
-        name: "Mathematics",
-      },
-    ],
-    level: "advanced",
+    id: "peter-brown",
+    name: "Peter Brown",
+    description: "Environmental policy analyst with a focus on sustainability.",
+    skills: [skills[2], skills[8], skills[7]], // Teamwork, Decision Making, Time Management
+    projects: [projects[7]], // Environmental Policy Analysis
+    level: levels.intermediate,
   },
   {
-    name: "Stephen Hawking",
-    skills: [
-      {
-        name: "Physics",
-      },
-      {
-        name: "Cosmology",
-      },
-    ],
-    level: "advanced",
+    id: "emily-lee",
+    name: "Emily Lee",
+    description: "Data analyst specializing in healthcare research.",
+    skills: [skills[3], skills[6], skills[8]], // Leadership, Analytical Thinking, Decision Making
+    projects: [projects[8]], // Advanced Data Analytics in Healthcare
+    level: levels.advanced,
   },
   {
-    name: "Rachel Carson",
-    skills: [
-      {
-        name: "Biology",
-      },
-      {
-        name: "Ecology",
-      },
-    ],
-    level: "advanced",
+    id: "michael-jackson",
+    name: "Michael Jackson",
+    description: "Passionate about sustainable agriculture and innovation.",
+    skills: [skills[0], skills[5], skills[7]], // Problem Solver, Creativity, Time Management
+    projects: [projects[9]], // Sustainable Agriculture Innovation
+    level: levels.intermediate,
   },
   {
-    name: "Carl Sagan",
-    skills: [
-      {
-        name: "Astronomy",
-      },
-      {
-        name: "Astrophysics",
-      },
-    ],
-    level: "advanced",
+    id: "linda-smith",
+    name: "Linda Smith",
+    description: "AI expert working on language translation and understanding.",
+    skills: [skills[3], skills[5], skills[8]], // Leadership, Creativity, Decision Making
+    projects: [projects[1]], // AI-Powered Language Translation
+    level: levels.advanced,
+    image: "/girl.png",
   },
   {
-    name: "Marie Tharp",
-    skills: [
-      {
-        name: "Geology",
-      },
-      {
-        name: "Oceanography",
-      },
-    ],
-    level: "advanced",
+    id: "james-anderson",
+    name: "James Anderson",
+    description: "Biologist studying ecosystems and biodiversity.",
+    skills: [skills[0], skills[2], skills[6]], // Problem Solver, Teamwork, Analytical Thinking
+    projects: [projects[1]], // Ecosystems and Biodiversity Research
+    level: levels.intermediate,
   },
   {
-    name: "Jane Goodall",
-    skills: [
-      {
-        name: "Primatology",
-      },
-      {
-        name: "Conservation",
-      },
-    ],
-    level: "advanced",
+    id: "lisa-jackson",
+    name: "Lisa Jackson",
+    description: "Social scientist researching human behavior and society.",
+    skills: [skills[1], skills[6], skills[9]], // Communication, Analytical Thinking, Critical Thinking
+    projects: [projects[5]], // Human Behavior Research
+    level: levels.advanced,
   },
   {
-    name: "Rosalind Franklin",
-    skills: [
-      {
-        name: "Chemistry",
-      },
-      {
-        name: "Biophysics",
-      },
-    ],
-    level: "advanced",
+    id: "clara-williams",
+    name: "Clara Williams",
+    description: "Geologist specializing in studying Earth's geological processes.",
+    skills: [skills[0], skills[2], skills[7]], // Problem Solver, Teamwork, Time Management
+    projects: [],
+    level: levels.intermediate,
   },
-  {
-    name: "Louis Pasteur",
-    skills: [
-      {
-        name: "Microbiology",
-      },
-      {
-        name: "Chemistry",
-      },
-    ],
-    level: "advanced",
-  },
-  {
-    name: "Leonardo da Vinci",
-    skills: [
-      {
-        name: "Art",
-      },
-      {
-        name: "Science",
-      },
-    ],
-    level: "advanced",
-  },
-  {
-    name: "Erwin Schrödinger",
-    skills: [
-      {
-        name: "Physics",
-      },
-      {
-        name: "Quantum Mechanics",
-      },
-    ],
-    level: "advanced",
-  },
-  {
-    name: "Dorothy Hodgkin",
-    skills: [
-      {
-        name: "Chemistry",
-      },
-      {
-        name: "Crystallography",
-      },
-    ],
-    level: "advanced",
-  },
-  {
-    name: "Richard Feynman",
-    skills: [
-      {
-        name: "Physics",
-      },
-      {
-        name: "Quantum Electrodynamics",
-      },
-    ],
-    level: "advanced",
-  },
-  {
-    name: "Charles Darwin",
-    skills: [
-      {
-        name: "Biology",
-      },
-      {
-        name: "Evolution",
-      },
-    ],
-    level: "advanced",
-  },
-  {
-    name: "Max Planck",
-    skills: [
-      {
-        name: "Physics",
-      },
-      {
-        name: "Quantum Theory",
-      },
-    ],
-    level: "advanced",
-  },
-];
+]
 
-people.forEach(person => person.image = 'https://thispersondoesnotexist.com/')
 
 export default people;
