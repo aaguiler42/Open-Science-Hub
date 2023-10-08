@@ -42,7 +42,7 @@ export default function ProjectElement({
         <div
           style={{
             width: "100%",
-            height: "15rem",
+            height: "16rem",
             overflow: "hidden",
           }}
         >
@@ -66,7 +66,7 @@ export default function ProjectElement({
           >
             {node.label}
           </h3>
-          <span>Guapo e inteligente</span>
+          <span>{node.project?.description}</span>
         </div>
       </div>
       <div
@@ -74,34 +74,60 @@ export default function ProjectElement({
           display: "flex",
           gap: "1rem",
           marginTop: ".5rem",
+          justifyContent: "space-between",
         }}
       >
-        <Badge>AI</Badge>
-        <Badge>Data</Badge>
-        <div style={{
-          marginLeft: "auto",
-          display: "flex",
-          gap: "1rem",
-        }}>
-        {node?.project?.stats && (
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            marginTop: ".5rem",
+            maxWidth: "80%",
+            overflowX: "auto",
+            paddingBottom: "1rem",
+          }}
+        >
+          {node.project?.categories?.map((category) => (
+            <Badge
+              style={{
+                backgroundColor: category.color,
+              }}
+              key={category.id}
+            >
+              {category.name}
+            </Badge>
+          ))}
+        </div>
+        <div
+          style={{
+            marginLeft: "auto",
+            display: "flex",
+            gap: "1rem",
+          }}
+        >
+          {node?.project?.stats && (
+            <img
+              src={chartSVG}
+              alt="open"
+              style={{
+                marginTop: "0.3rem",
+                cursor: "pointer",
+                width: "1.5rem",
+                height: "1.5rem",
+              }}
+              onClick={() => setStatsModal(true)}
+            />
+          )}
           <img
-            src={chartSVG}
+            src={openSVG}
             alt="open"
             style={{
-              marginTop: "0.3rem",
               cursor: "pointer",
               width: "1.5rem",
               height: "1.5rem",
-          }} onClick={() => setStatsModal(true)}/>
-        )}
-        <img
-          src={openSVG}
-          alt="open"
-          style={{
-            cursor: "pointer",
-            width: "1.5rem",
-            height: "1.5rem",
-        }} onClick={() => setCompaniesModal(true)}/>
+            }}
+            onClick={() => setCompaniesModal(true)}
+          />
         </div>
       </div>
       {/* <p
