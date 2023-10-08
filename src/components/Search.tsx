@@ -88,7 +88,7 @@ export default function Search() {
                 width: "2.5em",
                 height: "2.5em",
                 borderRadius: "50%"
-              }} src={user?.imageUrl} alt="" />
+              }} src={message.author === 'You' ? user?.imageUrl : '/AI.png'} alt="" />
               <span>{message.text}</span>
             </div>
           ))}
