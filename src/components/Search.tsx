@@ -11,6 +11,7 @@ interface Message {
 export default function Search() {
   const { user } = useUser();
   const input = useRef<HTMLInputElement>(null);
+  const messagesRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     if (!input.current) return;
 
@@ -18,15 +19,22 @@ export default function Search() {
       if (e.key === "Enter") {
         setMessages((messages) => {
           if (!input.current) return messages;
+          const value = input.current.value;
           const newMessages = [
             ...messages,
             {
               id: Math.random().toString(),
-              text: input.current.value,
+              text: value,
               author: "You",
             },
           ];
           input.current.value = "";
+          setTimeout(() => {
+            messagesRef.current?.scrollTo({
+              top: messagesRef.current.scrollHeight,
+              behavior: "smooth",
+            });
+          }, 100);
           return newMessages;
         });
       }
@@ -41,14 +49,9 @@ export default function Search() {
   const [showMessages, setShowMessages] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
-      author: "You",
-      id: "1",
-      text: "Hi, I'm John Doe",
-    },
-    {
       author: "AI",
-      id: "2",
-      text: "Hi, Nice to meet you",
+      id: "1",
+      text: "Hi, I'm the AI. How can I help you?"
     },
   ]);
 
@@ -67,20 +70,20 @@ export default function Search() {
             borderTopRightRadius: "4px",
             paddingInline: "1rem",
             zIndex: 10,
-            maxHeight: "300px",
+            maxHeight: "min(400px, 80vh)",
             overflowY: "auto",
           }}
+          ref={messagesRef}
         >
           {messages.map((message) => (
             <div
               style={{
                 borderBottom: "1px solid #fff",
-                padding: "0.5rem 0",
-                flexDirection: message.author === "You" ? "row-reverse" : "row",
+                padding: "1rem 0",
                 color: "#fff",
                 display: 'flex',
-                alignItems: 'center',
-                gap: '.5em'
+                gap: "1rem",
+                textAlign: "left",
               }}
               key={message.id}
             >
@@ -89,11 +92,9 @@ export default function Search() {
                 height: "2.5em",
                 borderRadius: "50%"
               }} src={message.author === 'You' ? user?.imageUrl : '/AI.png'} alt="" />
-              <span>{message.text}</span>
               <span style={{
-                marginRight: message.author === "You" ? 'auto' : undefined,
-                marginLeft: message.author === "You" ? undefined : 'auto',
-                }}>{message.author}</span>
+                marginTop: ".5rem"
+              }}>{message.text}</span>
             </div>
           ))}
         </div>
