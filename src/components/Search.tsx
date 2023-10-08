@@ -14,14 +14,12 @@ export default function Search({
 }) {
   const { user } = useUser();
   const [showMessages, setShowMessages] = useState(false);
-  const { chatModal, setChatModal } = useModalContext();
-  const m = useRef<any>(null)
+  const { setChatModal } = useModalContext();
   const {
     input,
     setInput,
     handleSubmit: chatSubmit,
     messages,
-    setMessages,
   } = useChat({
     api: "http://localhost:3000/api/chat",
     initialMessages: [
@@ -63,7 +61,6 @@ export default function Search({
       }
     },
   });
-  m.current = messages
   const messagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -80,6 +77,12 @@ export default function Search({
 
   return (
     <div style={{ position: "relative", width: "100%" }}>
+      <img src="/octopus.png" alt="" style={{
+        position: "absolute",
+        transform: "translateY(-100%)",
+        width: "9rem",
+        left: "-1rem",
+      }} />
       {showMessages && messages.length > 0 && (
         <div
           style={{
