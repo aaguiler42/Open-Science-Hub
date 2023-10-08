@@ -54,8 +54,8 @@ export default function Search({
       } else if (message.content.includes("🚀")) {
         setTimeout(select, 1000);
       } else if (message.content.includes("💻")) {
-        setChatModal(true);
         setTimeout(() => {
+          setChatModal(true);
           setShowMessages(false);
         }, 1000);
       }
