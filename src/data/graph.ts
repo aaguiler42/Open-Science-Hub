@@ -11,15 +11,15 @@ export const options: Options = {
   nodes: {
     shape: "circle",
     color: {
-      background: "#ffffff",
+      background: "#eee",
       border: "#1c1c1c",
       highlight: {
-        background: "red",
+        background: "#fff",
         border: "#000000",
       },
       hover: {
         background: "#ffffff",
-        border: "#000000",
+        border: "red",
       },
     },
     font: {
@@ -31,9 +31,8 @@ export const options: Options = {
   },
   edges: {
     color: {
-      color: "#f7990c",
-      highlight: "red",
-      hover: "red",
+      color: "#00f7ff",
+      highlight: "#09f",
     },
     width: 2,
   },
@@ -45,6 +44,10 @@ export const nodes: NodeData[] = [
     // label: person.name,
     shape: "circularImage",
     image: person.image ?? `/person-${index}.jpg`,
+    color: {
+      highlight: {
+      border: "#09f",
+    }},
     person: {
       ...person,
       image: person.image ?? `/person-${index}.jpg`,
@@ -56,7 +59,7 @@ export const nodes: NodeData[] = [
     project,
   })),
   ...categories
-    .filter((c) => projects.some((p) => p.category.id === c.id))
+    .filter((c) => projects.some((p) => p.categories.some(category => category.id === c.id)))
     .map((category) => ({
       id: category.id,
       label: category.name,
@@ -64,8 +67,7 @@ export const nodes: NodeData[] = [
       color: category.color,
       shape: "ellipse",
       font: {
-        // color: "#fff",
-        size: 18,
+        size: 16,
       },
     })),
 ];
@@ -85,5 +87,7 @@ people.forEach((person) => {
 
 // // Relaciones entre proyectos y categorías
 projects.forEach((project) => {
-  edges.push(createEdge(project.id, project.category.id));
+  project.categories.forEach((c) => {
+    edges.push(createEdge(project.id, c.id));
+  })
 });

@@ -51,7 +51,8 @@ function App() {
               position: "relative",
               backgroundImage: "url(/space.gif)",
               backgroundSize: "50%",
-              backgroundPosition: "left 0 top 22px"
+              backgroundPosition: "left 0 top 22px",
+              border: "1px solid white",
             }}
           >
             <div
@@ -65,7 +66,7 @@ function App() {
               <Filters />
             </div>
             <Graph
-              height="90vh"
+              height="85vh"
               nodes={nodes}
               edges={edges}
               selected={selected}

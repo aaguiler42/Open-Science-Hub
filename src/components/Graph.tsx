@@ -61,7 +61,6 @@ export default function Graph({
       id="mynetwork"
       style={{
         height,
-        border: "1px solid white",
       }}
     ></div>
   );

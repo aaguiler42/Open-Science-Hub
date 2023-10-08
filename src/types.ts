@@ -19,7 +19,7 @@ export interface Project {
   title: string;
   description: string;
   skills: Skill[];
-  category: Category;
+  categories: Category[];
   level: Level;
   startDate: Date;
   endDate: Date;

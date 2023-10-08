@@ -4,15 +4,15 @@ const categories: Category[] = [
   {
     id: "Natural Sciences",
     name: "Natural Sciences",
-    color: "#FFC3A0", // Color pastel
+    color: "#22e8bb", // Color pastel
   },
-  { id: "Biology", name: "Biology", color: "#FFD8B1" },
+  { id: "Biology", name: "Biology", color: "#3ee822" },
   { id: "Chemistry", name: "Chemistry", color: "#FFEDC1" },
   { id: "Physics", name: "Physics", color: "#FFFFD0" },
-  { id: "Astronomy", name: "Astronomy", color: "#D0FFD0" },
+  { id: "Astronomy", name: "Astronomy", color: "#e822e4" },
   { id: "Earth Sciences", name: "Earth Sciences", color: "#C1FFED" },
-  { id: "Geology", name: "Geology", color: "#B1FFD8" },
-  { id: "Meteorology", name: "Meteorology", color: "#A0FFC3" },
+  { id: "Geology", name: "Geology", color: "#e89f22" },
+  { id: "Meteorology", name: "Meteorology", color: "#e82222" },
   { id: "Oceanography", name: "Oceanography", color: "#C3FFC3" },
   {
     id: "Social Sciences",
