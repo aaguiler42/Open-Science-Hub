@@ -105,19 +105,17 @@ export default function ProjectElement({
             gap: "1rem",
           }}
         >
-          {node?.project?.stats && (
-            <img
-              src={chartSVG}
-              alt="open"
-              style={{
-                marginTop: "0.3rem",
-                cursor: "pointer",
-                width: "1.5rem",
-                height: "1.5rem",
-              }}
-              onClick={() => setStatsModal(true)}
-            />
-          )}
+          <img
+            src={chartSVG}
+            alt="open"
+            style={{
+              marginTop: "0.3rem",
+              cursor: "pointer",
+              width: "1.5rem",
+              height: "1.5rem",
+            }}
+            onClick={() => setStatsModal(true)}
+          />
           <img
             src={openSVG}
             alt="open"
