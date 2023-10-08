@@ -35,10 +35,11 @@ export default function Modal(props: {
       top: `50%`,
       left: `50%`,
       transform: `translate(-50%, -50%)`,
-      backgroundColor: "rgba(250,250,250)",
-      borderRadius: "1rem",   
+      backgroundColor: "rgb(5, 5, 5)",
+      borderRadius: "0.5rem",   
       zIndex: 100,
-      color: "#000",
+      color: "#ddd",
+      boxShadow: "0 0 1rem rgba(253,253,253,.8)",
     }}>
       {props.showX && <CloseX onClose={props.onClose} />}
       {props.children}
