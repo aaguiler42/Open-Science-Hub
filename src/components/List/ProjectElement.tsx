@@ -80,7 +80,7 @@ export default function ProjectElement({
         <div
           style={{
             display: "flex",
-            gap: "1rem",
+            gap: ".5rem",
             marginTop: ".5rem",
             maxWidth: "80%",
             overflowX: "auto",
