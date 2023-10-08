@@ -78,7 +78,6 @@ function createEdge(from: IdType, to: IdType): Edge {
 
 // Relaciones entre personas y proyectos
 people.forEach((person) => {
-  console.log(person.projects);
   person.projects.forEach((p) => {
     edges.push(createEdge(person.id, p.id));
   });

@@ -21,12 +21,10 @@ export default function Graph({
   setSelected: (node: NodeData | null) => void;
 }) {
   const network = useRef<Network| null>(null)
-  console.log(network.current?.getSeed())
 
   useEffect(() => {
     const container = document.getElementById("mynetwork");
     if (!container) return;
-    console.log(edges)
 
     const data = {
       nodes,
@@ -40,8 +38,6 @@ export default function Graph({
       const node = nodes?.find(({ id }) => id === params.nodes[0]) ?? null
       setSelected(node);
 
-      const el = document.querySelector(`#node-${node?.id}`);
-      console.log(el)
       const anchor = document.createElement("a");
       anchor.href = `#node-${node?.id}`
       anchor.click();
@@ -57,7 +53,6 @@ export default function Graph({
 
   useEffect(() => {
     if (!network.current || !selected?.id) return
-    console.log(selected)
     network.current.selectNodes([selected.id])
   }, [selected])
 
