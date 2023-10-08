@@ -1,6 +1,7 @@
-import { AreaChart, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from "@tremor/react";
+import { AreaChart, Card, Color, Flex, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Tracker } from "@tremor/react";
 import Modal from "./Modal";
 import openSVG from "../assets/open.svg";
+import { Badge } from "./ui/badge";
 
 const chartdata = [
   { date: "2023-10-01", visits: 100 },
@@ -62,7 +63,7 @@ const fakeData2 = [
   },
   {
     photo: '/person-4.jpg',
-    name: "David Wilson",
+    name: "David Wson",
     email: "dwilson@example.com",
     location: "Miami, FL"
   },
@@ -78,13 +79,107 @@ const fakeData2 = [
     email: "mlee@example.com",
     location: "Seattle, WA"
   },
-  {
-    photo: '/person-7.jpg',
-    name: "Sara Davis",
-    email: "sdavis@example.com",
-    location: "Boston, MA"
-  },
 ];
+
+const fakeData = [
+  {
+    status: "TO DO",
+    asignee: fakeData2[1],
+    "key": "SP-001",
+    "summary": "Assess mission objectives...",
+    "deadline": "2023-11-15"
+  },
+  {
+    status: "TO DO",
+    asignee: fakeData2[2],
+    "key": "SP-002",
+    "summary": "Design spacecraft prototype...",
+    "deadline": "2024-02-28"
+  },
+  {
+    status: "IN PROGRESS",
+    asignee: fakeData2[0],
+    "key": "SP-003",
+    "summary": "Train astronaut crew...",
+    "deadline": "2024-04-15"
+  },
+  {
+    status: "DONE",
+    asignee: fakeData2[4],
+    "key": "SP-004",
+    "summary": "Develop communication protocols...",
+    "deadline": "2024-03-10"
+  },
+  {
+    status: "TO DO",
+    asignee: fakeData2[1],
+    "key": "SP-005",
+    "summary": "Integrate spacecraft systems...",
+    "deadline": "2024-06-30"
+  },
+  {
+    status: "TO BE REVIEWED",
+    asignee: fakeData2[3],
+    "key": "SP-006",
+    "summary": "Secure permits and clearances...",
+    "deadline": "2024-05-20"
+  },
+  {
+    status: "TO DO",
+    asignee: fakeData2[6],
+    "key": "SP-007",
+    "summary": "Plan emergency response...",
+    "deadline": "2024-07-15"
+  },
+  {
+    status: "TO DO",
+    asignee: fakeData2[1],
+    "key": "SP-08",
+    "summary": "Evaluate mission risks...",
+    "deadline": "2024-10-05"
+  },
+  {
+    status: "TO BE REVIEWED",
+    asignee: fakeData2[3],
+    "key": "SP-09",
+    "summary": "Finalize mission budget...",
+    "deadline": "2024-11-20"
+  }
+];
+
+interface Tracker {
+  color: Color;
+  tooltip: string;
+}
+
+const aux: Record<string, Color> = {
+  "TO DO": "gray",
+  "IN PROGRESS": "cyan",
+  "TO BE REVIEWED": "yellow",
+  "DONE": "green",
+}
+
+const color: Record<string, string> = {
+  "TO DO": "white",
+  "IN PROGRESS": "black",
+  "TO BE REVIEWED": "black",
+  "DONE": "white",
+}
+
+const aux2 = [
+  { color: "gray", tooltip: "TO DO"},
+  { color: "cyan", tooltip: "IN PROGRESS"},
+  { color: "yellow", tooltip: "TO BE REVIEWED"},
+  { color: "green", tooltip: "DONE"}
+]
+
+// @ts-expect-error - this is a fake data
+const fakeData3: Tracker[] = [
+  3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+  2, 2, 2,
+  1, 1, 1, 1, 1, 1,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+].map (item => aux2[item]);
 
 export default function Stats(props:{
   onClose: () => void;
@@ -97,6 +192,7 @@ export default function Stats(props:{
   >
     <div style={{
       padding: "1.5rem 2rem",
+      textAlign: "left",
     }}>
       <h1 style={{
           textAlign: "center",
@@ -185,17 +281,117 @@ export default function Stats(props:{
                 ))}
               </TableBody>
             </Table>
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+              fontSize: "2rem",
+            }}>
+              ...
+            </div>
           </div>
         </div>
-        <div>
-          <div>
-            TASK STATUS
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+        }}>
+          <h3 style={{
+            textAlign: "center",
+            color: "white",
+            fontWeight: "500",
+            marginBottom: "1rem",
+          }}>Tasks</h3>
+          <div style={{
+            paddingTop: "1rem",
+            padding: "3.5rem",
+            marginBottom: "4rem",
+            height: "100px",
+          }}>
+            <div style={{
+              fontSize: "1.2rem",
+              fontWeight: "bold",
+            }}>Tasks Overview</div>
+            <div style={{
+              textAlign: "right",
+              marginBottom: "1.5rem",
+            }}>
+              28% completed
+            </div>
+            <Tracker data={fakeData3} className="m-2"/>              
           </div>
-          <div>
-            TASKS...
+          <div style={{
+            marginTop: "2rem",
+          }}>
+            <Table className="mt-5 ml-10">
+              <TableHead>
+                <TableRow>
+                  <TableHeaderCell>Key</TableHeaderCell>
+                  <TableHeaderCell>Summary</TableHeaderCell>
+                  <TableHeaderCell>Status</TableHeaderCell>
+                  <TableHeaderCell>Asignee</TableHeaderCell>
+                  <TableHeaderCell>Deadline</TableHeaderCell>
+                  <TableHeaderCell></TableHeaderCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {fakeData.map((item) => (
+                  <TableRow key={item.key}>
+                    <TableCell>{item.key}</TableCell>
+                    <TableCell>{item.summary}</TableCell>
+                    <TableCell>
+                      <Badge style={{
+                        backgroundColor: aux[item.status],
+                        color: color[item.status],
+                      }} >{item.status}</Badge>
+                    </TableCell>
+                    <TableCell>
+                      <div style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}>
+                        <img
+                          src={item.asignee.photo}
+                          alt="profile"
+                          style={{
+                            width: "2rem",
+                            height: "2rem",
+                            borderRadius: "50%",
+                            marginRight: "1rem",
+                          }}></img>
+                          {item.asignee.name}
+                        </div>
+                    </TableCell>
+                    <TableCell>
+                      {item.deadline}
+                    </TableCell>
+                    <TableCell>
+                      <img
+                        src={openSVG}
+                        alt="open"
+                        style={{
+                          cursor: "pointer",
+                          width: "1.2rem",
+                          height: "1.2rem",
+                          margin: "0.5rem",
+                        }}/>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
-          <div>
-            ADD NEW TASKS
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            fontSize: "2rem",
+          }}>
+            ...
+          </div>
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "2rem",
+          }}>
           </div>
         </div>
       </div>

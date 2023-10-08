@@ -17,6 +17,25 @@
   height: 220px;
 }
 
+.trackker {
+  width: 100%;
+  height: 100px;
+}
+
+.cardTracker {
+  padding: 2rem;
+  padding-bottom: 3rem;
+  margin-bottom: 5rem;
+  border-radius: 0.25rem;
+  box-shadow: "0 0 4rem rgba(253,253,253,.8)",
+}
+
+.tremor-Tracker-trackingBlock {
+  height: 80px;
+  margin: 2px;
+  border-radius: 0.25rem;
+}
+
 .card {
   width: 200px;
 }
