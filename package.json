@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^4.26.3",
     "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slot": "^1.0.2",
     "@tremor/react": "^3.8.2",
     "ai": "^2.2.14",
     "class-variance-authority": "^0.7.0",
