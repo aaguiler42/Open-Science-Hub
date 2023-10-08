@@ -1,4 +1,4 @@
-import { AreaChart, Card, Color, Flex, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Tracker } from "@tremor/react";
+import { AreaChart, Color, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Tracker } from "@tremor/react";
 import Modal from "./Modal";
 import openSVG from "../assets/open.svg";
 import { Badge } from "./ui/badge";
@@ -144,6 +144,13 @@ const fakeData = [
     "key": "SP-09",
     "summary": "Finalize mission budget...",
     "deadline": "2024-11-20"
+  },
+  {
+    status: "TO DO",
+    asignee: fakeData2[2],
+    "key": "SP-013",
+    "summary": "Prepare mission documentation...",
+    "deadline": "2024-12-15"
   }
 ];
 
@@ -291,23 +298,20 @@ export default function Stats(props:{
           </div>
         </div>
         <div style={{
+          marginLeft: "2rem",
+          marginRight: "1rem",
           display: "flex",
           flexDirection: "column",
           width: "100%",
         }}>
-          <h3 style={{
-            textAlign: "center",
-            color: "white",
-            fontWeight: "500",
-            marginBottom: "1rem",
-          }}>Tasks</h3>
           <div style={{
-            paddingTop: "1rem",
-            padding: "3.5rem",
+            paddingTop: "0",
+            padding: "3rem",
             marginBottom: "4rem",
             height: "100px",
           }}>
             <div style={{
+              textAlign: "center",
               fontSize: "1.2rem",
               fontWeight: "bold",
             }}>Tasks Overview</div>

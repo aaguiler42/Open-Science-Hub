@@ -16,7 +16,7 @@ export default function Nav() {
         fontWeight: "bold"
       }}>OSH</span>
 
-    <h1>Open Science Projects</h1>
+    <h1>Explore the Universe!</h1>
     { isSignedIn
       ? <UserButton 
           afterSignOutUrl="/"
