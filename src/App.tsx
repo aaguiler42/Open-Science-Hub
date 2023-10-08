@@ -8,6 +8,7 @@ const clerk_pub_key =
   "pk_test_bWFqb3ItcGVnYXN1cy04My5jbGVyay5hY2NvdW50cy5kZXYk";
 
 import { nodes, edges } from "./data/graph";
+
 import Graph from "./components/Graph";
 import { NodeData } from "./types";
 import Onboarding from "./components/Onboarding";
@@ -19,8 +20,11 @@ import Search from "./components/Search";
 import ProjectStats from "./components/ProjectStats";
 import ChhatAI from "./components/ChhatAI";
 
+const toSelect = nodes.find(n => n.id === 6)
+
 function App() {
   const [selected, setSelected] = useState<NodeData | null>(null);
+  const [nodesState, setNodesState] = useState<NodeData[]>(nodes);
   const { chatModal, statsModal, setStatsModal } = useModalContext();
 
   return (
@@ -66,7 +70,7 @@ function App() {
             </div>
             <Graph
               height="85vh"
-              nodes={nodes}
+              nodes={nodesState}
               edges={edges}
               selected={selected}
               setSelected={setSelected}
@@ -79,7 +83,17 @@ function App() {
               maxWidth: "80%",
               width: "500px"
             }}>
-              <Search />
+              <Search select={() => {
+                if (!toSelect) return
+                setSelected(toSelect)
+                
+                const anchor = document.createElement("a");
+                anchor.href = `#node-${toSelect.id}`
+                anchor.click();
+                anchor.remove();
+              }} addNode={node => {
+                setNodesState(state => [...state, node])
+              }} />
             </div>
           </div>
         </div>

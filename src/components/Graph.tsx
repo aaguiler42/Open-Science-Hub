@@ -1,6 +1,7 @@
 import {
   Network,
   Edge,
+  DataSet
 } from "vis-network/standalone/esm/vis-network";
 
 import { useEffect, useRef } from "react";
@@ -21,13 +22,24 @@ export default function Graph({
   setSelected: (node: NodeData | null) => void;
 }) {
   const network = useRef<Network| null>(null)
+  const nodesRef = useRef<any>(null) // eslint-disable-line @typescript-eslint/no-explicit-any
+
+  useEffect(() => {
+    if (!nodesRef.current) return
+    const ids = nodesRef.current.getIds()
+    nodes.forEach(node => {
+      if (nodesRef.current && node.id && !ids.includes(node.id)) {
+        nodesRef.current.add(node)
+    }})
+  }, [nodes])
 
   useEffect(() => {
     const container = document.getElementById("mynetwork");
     if (!container) return;
 
+    nodesRef.current = new DataSet(nodes);
     const data = {
-      nodes,
+      nodes: nodesRef.current,
       edges,
     };
     network.current = new Network(container, data, options);

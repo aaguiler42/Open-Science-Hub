@@ -1,59 +1,82 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useChat } from "ai/react";
+import { useEffect, useRef, useState } from "react";
 import { Input } from "./ui/input";
 import { useUser } from "@clerk/clerk-react";
+import { NodeData } from "../types";
+import { useModalContext } from "../contexts/ModalContext";
 
-interface Message {
-  id: string;
-  text: string;
-  author: string;
-}
-
-export default function Search() {
+export default function Search({
+  select,
+  addNode,
+}: {
+  select: () => void;
+  addNode: (node: NodeData) => void;
+}) {
   const { user } = useUser();
-  const input = useRef<HTMLInputElement>(null);
-  const messagesRef = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
-    if (!input.current) return;
-
-    const listener = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        setMessages((messages) => {
-          if (!input.current) return messages;
-          const value = input.current.value;
-          const newMessages = [
-            ...messages,
-            {
-              id: Math.random().toString(),
-              text: value,
-              author: "You",
-            },
-          ];
-          input.current.value = "";
-          setTimeout(() => {
-            messagesRef.current?.scrollTo({
-              top: messagesRef.current.scrollHeight,
-              behavior: "smooth",
-            });
-          }, 100);
-          return newMessages;
-        });
-      }
-    };
-
-    input.current.addEventListener("keydown", listener);
-    return () => {
-      input.current?.removeEventListener("keydown", listener); // eslint-disable-line
-    };
-  }, []);
-
   const [showMessages, setShowMessages] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      author: "AI",
-      id: "1",
-      text: "Hi, I'm the AI. How can I help you?"
+  const { chatModal, setChatModal } = useModalContext();
+  const m = useRef<any>(null)
+  const {
+    input,
+    setInput,
+    handleSubmit: chatSubmit,
+    messages,
+    setMessages,
+  } = useChat({
+    api: "http://localhost:3000/api/chat",
+    initialMessages: [
+      {
+        role: "assistant",
+        content:
+          "Hi, I'm the AI. I've realized you have not provided us your information yet. Would you like I help you to create a profile?",
+        id: "first",
+      },
+    ],
+    onFinish: (message) => {
+      if (message.content.includes("✅")) {
+        setTimeout(() => {
+          setShowMessages(false);
+        }, 1000);
+        setTimeout(() => {
+          addNode({
+            id: "user",
+            color: "#fff",
+            shape: "circularImage",
+            image: user?.imageUrl,
+            person: {
+              name: user?.firstName + " " + user?.lastName,
+              id: "user",
+              description: "User",
+              level: "intermediate",
+              skills: [],
+              projects: [],
+            },
+          });
+        }, 1500);
+      } else if (message.content.includes("🚀")) {
+        setTimeout(select, 1000);
+      } else if (message.content.includes("💻")) {
+        setChatModal(true);
+        setTimeout(() => {
+          setShowMessages(false);
+        }, 1000);
+      }
     },
-  ]);
+  });
+  m.current = messages
+  const messagesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!messagesRef.current || !showMessages) return;
+    messagesRef.current.scrollTo({
+      top: messagesRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages, showMessages]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
 
   return (
     <div style={{ position: "relative", width: "100%" }}>
@@ -75,45 +98,58 @@ export default function Search() {
           }}
           ref={messagesRef}
         >
-          {messages.map((message) => (
-            <div
-              style={{
-                borderBottom: "1px solid #fff",
-                padding: "1rem 0",
-                color: "#fff",
-                display: 'flex',
-                gap: "1rem",
-                textAlign: "left",
-              }}
-              key={message.id}
-            >
-              <img style={{
-                width: "2.5em",
-                height: "2.5em",
-                borderRadius: "50%"
-              }} src={message.author === 'You' ? user?.imageUrl : '/AI.png'} alt="" />
-              <span style={{
-                marginTop: ".5rem"
-              }}>{message.text}</span>
-            </div>
-          ))}
+          {messages
+            .filter((m) => m.role !== "system")
+            .map((message) => (
+              <div
+                style={{
+                  borderBottom: "1px solid #fff",
+                  padding: "1rem 0",
+                  color: "#fff",
+                  display: "flex",
+                  gap: "1rem",
+                  textAlign: "left",
+                }}
+                key={message.id}
+              >
+                <img
+                  style={{
+                    width: "2.5em",
+                    height: "2.5em",
+                    borderRadius: "50%",
+                  }}
+                  src={message.role === "user" ? user?.imageUrl : "/AI.png"}
+                  alt=""
+                />
+                <span
+                  style={{
+                    marginTop: ".5rem",
+                  }}
+                >
+                  {message.content}
+                </span>
+              </div>
+            ))}
         </div>
       )}
-      <Input
-        ref={input}
-        onFocus={() => setShowMessages(true)}
-        onBlur={() => setShowMessages(false)}
-        style={{
-          width: "100%",
-          border: "1px solid #fff",
-          borderRadius: "4px",
-          borderTopLeftRadius: showMessages ? "0" : "4px",
-          borderTopRightRadius: showMessages ? "0" : "4px",
-          fontSize: "1.1rem",
-          boxShadow: "0 0 10px 2px #fff",
-        }}
-        placeholder="🔎  What are you looking for?"
-      />
+      <form onSubmit={chatSubmit}>
+        <Input
+          value={input}
+          onChange={handleChange}
+          onFocus={() => setShowMessages(true)}
+          onBlur={() => setShowMessages(false)}
+          style={{
+            width: "100%",
+            border: "1px solid #fff",
+            borderRadius: "4px",
+            borderTopLeftRadius: showMessages ? "0" : "4px",
+            borderTopRightRadius: showMessages ? "0" : "4px",
+            fontSize: "1.1rem",
+            boxShadow: "0 0 10px 2px #fff",
+          }}
+          placeholder="👋  Interact with me!"
+        />
+      </form>
     </div>
   );
 }
