@@ -90,6 +90,10 @@ export default function Search() {
                 borderRadius: "50%"
               }} src={user?.imageUrl} alt="" />
               <span>{message.text}</span>
+              <span style={{
+                marginRight: message.author === "You" ? 'auto' : undefined,
+                marginLeft: message.author === "You" ? undefined : 'auto',
+                }}>{message.author}</span>
             </div>
           ))}
         </div>
