@@ -15,7 +15,7 @@ export default function ProjectElement({
   selected?: boolean;
   onClick?: () => void;
 }) {
-  const { setCompaniesModal, setStatsModal } = useModalContext();
+  const { setStatsModal } = useModalContext();
 
   return (
     <div
@@ -123,9 +123,7 @@ export default function ProjectElement({
               cursor: "pointer",
               width: "1.5rem",
               height: "1.5rem",
-            }}
-            onClick={() => setCompaniesModal(true)}
-          />
+          }}/>
         </div>
       </div>
       {/* <p

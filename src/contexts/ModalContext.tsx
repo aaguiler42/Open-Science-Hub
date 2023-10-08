@@ -7,6 +7,8 @@ export interface ModalContextType {
   setCompaniesModal: React.Dispatch<React.SetStateAction<boolean>>;
   statsModal: boolean;
   setStatsModal: React.Dispatch<React.SetStateAction<boolean>>;
+  chatModal: boolean;
+  setChatModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Context = createContext<ModalContextType | null>(null);
@@ -17,6 +19,7 @@ export default function ModalProvider(props:{
   const [profileModal, setProfileModal] = useState(false);
   const [companiesModal, setCompaniesModal] = useState(false);
   const [statsModal, setStatsModal] = useState(false);
+  const [chatModal, setChatModal] = useState(false);
   return (<Context.Provider value={{
     profileModal,
     setProfileModal,
@@ -24,6 +27,8 @@ export default function ModalProvider(props:{
     setCompaniesModal,
     statsModal,
     setStatsModal,
+    chatModal,
+    setChatModal
   }}>
     {props.children}
   </Context.Provider>)

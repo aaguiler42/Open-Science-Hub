@@ -1,7 +1,6 @@
 import { NodeData } from "../../types";
 import { Badge } from "../ui/badge";
 import openSVG from "../../assets/open.svg";
-import { useModalContext } from "../../contexts/ModalContext";
 
 export default function PersonElement({
   id,
@@ -14,8 +13,6 @@ export default function PersonElement({
   selected?: boolean;
   onClick?: () => void;
 }) {
-  const { setProfileModal } = useModalContext();
-
   if (!node.person) return null
   return (
     <div
@@ -90,7 +87,7 @@ export default function PersonElement({
             cursor: "pointer",
             width: "1.5rem",
             height: "1.5rem",
-        }} onClick={() => setProfileModal(true)} />
+        }}/>
       </div>
       {/* <p
             style={{

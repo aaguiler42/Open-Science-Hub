@@ -15,14 +15,13 @@ import List from "./components/List";
 import Nav from "./components/Nav";
 import Filters from "./components/Filters";
 import { useModalContext } from "./contexts/ModalContext";
-import Profile from "./components/Profile";
-import ProjectProfile from "./components/ProjectProfile";
 import Search from "./components/Search";
 import ProjectStats from "./components/ProjectStats";
+import ChhatAI from "./components/ChhatAI";
 
 function App() {
   const [selected, setSelected] = useState<NodeData | null>(null);
-  const { profileModal , setProfileModal, companiesModal, setCompaniesModal, statsModal, setStatsModal } = useModalContext();
+  const { chatModal, statsModal, setStatsModal } = useModalContext();
 
   return (
     <ClerkProvider publishableKey={clerk_pub_key}>
@@ -85,9 +84,8 @@ function App() {
           </div>
         </div>
       </div>
-      {profileModal && <Profile onClose={() => setProfileModal(false)} />}
-      {companiesModal && <ProjectProfile onClose={() => setCompaniesModal(false)} />}
       {statsModal && <ProjectStats onClose={() => setStatsModal(false)} />}
+      {chatModal && <ChhatAI />}
     </ClerkProvider>
   );
 }
