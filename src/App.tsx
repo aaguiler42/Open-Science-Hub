@@ -38,7 +38,7 @@ function App() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 4fr",
+            gridTemplateColumns: "2fr 8fr",
             overflow: "hidden",
             padding: "2rem",
             height: "95vh",
