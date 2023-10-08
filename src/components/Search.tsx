@@ -21,7 +21,7 @@ export default function Search({
     handleSubmit: chatSubmit,
     messages,
   } = useChat({
-    api: "https://nasa-api-ashen.vercel.app/api/generate",
+    api: "https://nasa-api-ashen.vercel.app/api/chat",
     initialMessages: [
       {
         role: "assistant",
