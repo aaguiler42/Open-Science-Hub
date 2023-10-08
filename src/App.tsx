@@ -16,11 +16,11 @@ import Nav from "./components/Nav";
 import Filters from "./components/Filters";
 import { useModalContext } from "./contexts/ModalContext";
 import Profile from "./components/Profile";
+import Search from "./components/Search";
 
 function App() {
   const [selected, setSelected] = useState<NodeData | null>(null);
   const { profileModal , setProfileModal } = useModalContext();
-  console.log('useModalContext', profileModal, setProfileModal)
 
   return (
     <ClerkProvider publishableKey={clerk_pub_key}>
@@ -69,6 +69,16 @@ function App() {
               selected={selected}
               setSelected={setSelected}
             />
+            <div style={{
+              position: "absolute",
+              bottom: "1rem",
+              left: "50%",
+              transform: "translateX(-50%)",
+maxWidth: "80%",
+  width: "500px"
+            }}>
+              <Search />
+            </div>
           </div>
         </div>
       </div>

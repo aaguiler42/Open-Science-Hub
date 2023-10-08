@@ -14,7 +14,6 @@ export default function ModalProvider(props:{
 }){
   const [profileModal, setProfileModal] = useState(false);
   const [companiesModal, setCompaniesModal] = useState(false);
-  console.log("ModalProvider", profileModal, companiesModal);
   return (<Context.Provider value={{
     profileModal,
     setProfileModal,
@@ -30,6 +29,5 @@ export const useModalContext = () => {
   if (!context) {
     throw new Error("useModalContext must be used within a ModalProvider");
   }
-  console.log("useModalContext", context);
   return context;
 }

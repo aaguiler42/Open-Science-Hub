@@ -5,7 +5,6 @@ import EditorAI from "./EditorAI";
 export default function Profile(props:{
   onClose: () => void;
 }){
-  console.log("render Profile")
   const [chatOpen, setChatOpen] = useState(false);
   return (<Modal
     showX={true}
