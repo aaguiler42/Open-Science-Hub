@@ -26,7 +26,7 @@ export default function Search({
       {
         role: "assistant",
         content:
-          "Hi, I'm the AI. I've realized you have not provided us your information yet. Would you like I help you to create a profile?",
+          "Hi, I'm MOB, your AI-Powered Manager Onboard. I've realized you have not provided us your information yet. Would you like I help you to create a profile?",
         id: "first",
       },
     ],

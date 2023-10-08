@@ -99,7 +99,7 @@ function App() {
         </div>
       </div>
       {statsModal && <ProjectStats onClose={() => setStatsModal(false)} />}
-      {chatModal && <ChhatAI />}
+      {<ChhatAI />}
     </ClerkProvider>
   );
 }

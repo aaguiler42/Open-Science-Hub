@@ -9,7 +9,11 @@ export default function EditorAI(props: {
     width: "1000px",
   }}>
     <Editor
-      defaultValue={props.defaultValue}
+      defaultValue={
+`Dear team,
+
+`
+}
       completionApi="https://nasa-api-ashen.vercel.app/api/generate"
       className={props.className}
     />
