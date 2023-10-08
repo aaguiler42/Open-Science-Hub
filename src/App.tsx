@@ -18,10 +18,11 @@ import { useModalContext } from "./contexts/ModalContext";
 import Profile from "./components/Profile";
 import ProjectProfile from "./components/ProjectProfile";
 import Search from "./components/Search";
+import ProjectStats from "./components/ProjectStats";
 
 function App() {
   const [selected, setSelected] = useState<NodeData | null>(null);
-  const { profileModal , setProfileModal, companiesModal, setCompaniesModal } = useModalContext();
+  const { profileModal , setProfileModal, companiesModal, setCompaniesModal, statsModal, setStatsModal } = useModalContext();
 
   return (
     <ClerkProvider publishableKey={clerk_pub_key}>
@@ -75,8 +76,8 @@ function App() {
               bottom: "1rem",
               left: "50%",
               transform: "translateX(-50%)",
-maxWidth: "80%",
-  width: "500px"
+              maxWidth: "80%",
+              width: "500px"
             }}>
               <Search />
             </div>
@@ -85,6 +86,7 @@ maxWidth: "80%",
       </div>
       {profileModal && <Profile onClose={() => setProfileModal(false)} />}
       {companiesModal && <ProjectProfile onClose={() => setCompaniesModal(false)} />}
+      {statsModal && <ProjectStats onClose={() => setStatsModal(false)} />}
     </ClerkProvider>
   );
 }

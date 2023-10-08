@@ -24,6 +24,7 @@ export interface Project {
   startDate: Date;
   endDate: Date;
   image?: string;
+  stats?: boolean;
 }
 
 export interface Person {

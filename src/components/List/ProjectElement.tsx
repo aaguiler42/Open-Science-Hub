@@ -1,6 +1,7 @@
 import { NodeData } from "../../types";
 import { Badge } from "../ui/badge";
 import openSVG from "../../assets/open.svg";
+import chartSVG from "../../assets/chart.svg";
 import { useModalContext } from "../../contexts/ModalContext";
 
 export default function ProjectElement({
@@ -14,7 +15,7 @@ export default function ProjectElement({
   selected?: boolean;
   onClick?: () => void;
 }) {
-  const { setCompaniesModal } = useModalContext();
+  const { setCompaniesModal, setStatsModal } = useModalContext();
 
   return (
     <div
@@ -77,17 +78,31 @@ export default function ProjectElement({
       >
         <Badge>AI</Badge>
         <Badge>Data</Badge>
+        <div style={{
+          marginLeft: "auto",
+          display: "flex",
+          gap: "1rem",
+        }}>
+        {node?.project?.stats && (
+          <img
+            src={chartSVG}
+            alt="open"
+            style={{
+              marginTop: "0.3rem",
+              cursor: "pointer",
+              width: "1.5rem",
+              height: "1.5rem",
+          }} onClick={() => setStatsModal(true)}/>
+        )}
         <img
           src={openSVG}
           alt="open"
           style={{
-            position: "absolute",
-            bottom: "1.05rem",
-            right: "1rem",
             cursor: "pointer",
             width: "1.5rem",
             height: "1.5rem",
         }} onClick={() => setCompaniesModal(true)}/>
+        </div>
       </div>
       {/* <p
             style={{

@@ -73,7 +73,8 @@ const projects: Project[] = [
     level: levels.advanced,
     startDate: new Date("2024-04-01"),
     endDate: new Date("2026-04-01"),
-    image: '/space-exploration.png'
+    image: '/space-exploration.png',
+    stats: true
   },
   {
     id: 7,
