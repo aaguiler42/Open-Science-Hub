@@ -120,8 +120,9 @@ export default function Search({
                     width: "2.5em",
                     height: "2.5em",
                     borderRadius: "50%",
+                    objectFit: "cover",
                   }}
-                  src={message.role === "user" ? user?.imageUrl : "/AI.png"}
+                  src={message.role === "user" ? user?.imageUrl : "/octopus.png"}
                   alt=""
                 />
                 <span
