@@ -26,7 +26,7 @@ export default function ChhatAI() {
             fontSize: "1.3rem",
             fontWeight: "500"
           }}>Make a proposal for Space Exploration Mission II</h2>
-          <EditorAI defaultValue="" className="relative min-h-[550px] w-full max-w-screen-lg border-stone-200 bg-white sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg editor"/>
+          <EditorAI defaultValue="Dear team\,n\n" className="relative min-h-[550px] w-full max-w-screen-lg border-stone-200 bg-white sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg editor"/>
           <Button style={{
             textAlign: "center",
             fontSize: "1.3rem",
@@ -36,7 +36,9 @@ export default function ChhatAI() {
             marginInline: "auto",
             marginTop: "1rem",
             borderRadius: "4px",
-          }} onClick={() => {setChatModal(false)}}>Send Proposal</Button>
+          }} onClick={() => {
+            setChatModal(false)
+            }}>Send Proposal</Button>
         </div>
         </Modal>
       )}
