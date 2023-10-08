@@ -16,10 +16,11 @@ import Nav from "./components/Nav";
 import Filters from "./components/Filters";
 import { useModalContext } from "./contexts/ModalContext";
 import Profile from "./components/Profile";
+import ProjectProfile from "./components/ProjectProfile";
 
 function App() {
   const [selected, setSelected] = useState<NodeData | null>(null);
-  const { profileModal , setProfileModal } = useModalContext();
+  const { profileModal , setProfileModal, companiesModal, setCompaniesModal } = useModalContext();
   console.log('useModalContext', profileModal, setProfileModal)
 
   return (
@@ -73,6 +74,7 @@ function App() {
         </div>
       </div>
       {profileModal && <Profile onClose={() => setProfileModal(false)} />}
+      {companiesModal && <ProjectProfile onClose={() => setCompaniesModal(false)} />}
     </ClerkProvider>
   );
 }

@@ -1,5 +1,7 @@
 import { NodeData } from "../../types";
 import { Badge } from "../ui/badge";
+import openSVG from "../../assets/open.svg";
+import { useModalContext } from "../../contexts/ModalContext";
 
 export default function ProjectElement({
   id,
@@ -12,12 +14,15 @@ export default function ProjectElement({
   selected?: boolean;
   onClick?: () => void;
 }) {
+  const { setCompaniesModal } = useModalContext();
+
   return (
     <div
       id={id}
       key={node.id}
       onClick={onClick}
       style={{
+        position: "relative",
         padding: "1rem",
         display: "flex",
         flexDirection: "column",
@@ -72,6 +77,17 @@ export default function ProjectElement({
       >
         <Badge>AI</Badge>
         <Badge>Data</Badge>
+        <img
+          src={openSVG}
+          alt="open"
+          style={{
+            position: "absolute",
+            bottom: "1.05rem",
+            right: "1rem",
+            cursor: "pointer",
+            width: "1.5rem",
+            height: "1.5rem",
+        }} onClick={() => setCompaniesModal(true)}/>
       </div>
       {/* <p
             style={{

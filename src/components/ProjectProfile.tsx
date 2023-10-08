@@ -12,7 +12,7 @@ export default function Profile(props:{
     width="80vw"
     height="80vh"
   >
-      <h1>User Profile</h1>
+      <h1>Project Profile</h1>
       {/* TODO: substituir por foto de perfil de usuario */}
       <div style={{
         height: "90%",
@@ -40,7 +40,7 @@ export default function Profile(props:{
             margin: "1rem",
             fontSize: "1.3rem",
             fontWeight: "500"
-          }}>Making a proposal for $$NAME$$</h2>
+          }}>Making a proposal for $$PROJECT NAME$$</h2>
           <EditorAI defaultValue="" className="relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg editooor"/>
           <button style={{
             textAlign: "center",
