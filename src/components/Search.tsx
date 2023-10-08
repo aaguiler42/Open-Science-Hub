@@ -51,13 +51,13 @@ export default function Search({
             },
           });
         }, 1500);
-      } else if (message.content.includes("🚀")) {
-        setTimeout(select, 1000);
       } else if (message.content.includes("💻")) {
         setTimeout(() => {
           setChatModal(true);
           setShowMessages(false);
         }, 1000);
+      } else if (message.content.includes("🚀")) {
+        setTimeout(select, 1000);
       }
     },
   });
