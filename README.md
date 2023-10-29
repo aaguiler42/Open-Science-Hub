@@ -1,27 +1,32 @@
-# React + TypeScript + Vite
+# Open Science Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Open Science Hub GitHub repository! This project was developed during a weekend hackathon by a team of two dedicated individuals. We went from an initial idea to a functional marketplace for open science projects, where people can discover and apply for exciting research initiatives.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Open Science Hub project was conceived, designed, and built in just a single weekend. The challenge we faced was to create a platform that facilitates open science projects. We aimed to make it easy for both researchers to find projects and for project leaders to discover passionate individuals to join their teams.
 
-## Expanding the ESLint configuration
+One of the unique aspects of this project is our use of a graph database, Neo4j, to manage project data. Due to the time constraints of the hackathon (only 48 hours), we opted to create a mock database and hardcode the initial dataset. However, our system is designed to seamlessly transition to a real database when you decide to do so.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Features
 
-- Configure the top-level `parserOptions` property like this:
+- Discover and browse open science projects.
+- Apply to projects based on your research interests.
+- Seamless authentication provided by Clerk.dev.
+- Integration with a GPT-based AI to enhance project recommendations.
+- A chat-based user interface that replaces traditional navigation.
+- Personalized project recommendations based on your profile.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Technology Stack
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React
+- Typescript
+- Vite
+- Neo4j (for graph database, replaceable with any database)
+- Clerk.dev (for authentication)
+- GPT API (for AI integration)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
