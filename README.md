@@ -1,6 +1,6 @@
 # Open Science Hub 🌟
 
-Welcome to the Open Science Hub GitHub repository! This project was developed during a weekend hackathon by a team of two dedicated individuals. We went from an initial idea to a functional marketplace for open science projects, where people can discover and apply for exciting research initiatives.
+Welcome to the [Open Science Hub](https://opensciencehub.space/) GitHub repository! This project was developed during a weekend hackathon by a team of two dedicated individuals. We went from an initial idea to a functional marketplace for open science projects, where people can discover and apply for exciting research initiatives.
 
 ## Project Overview 📝
 
